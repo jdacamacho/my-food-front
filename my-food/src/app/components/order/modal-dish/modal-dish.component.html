@@ -1,0 +1,25 @@
+<ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Order: {{ order?.id_order }}</h4>
+      <button type="button" class="btn-close" aria-label="Close" (click)="d('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+      <form (ngSubmit)="addDish()">
+        <div class="mb-3">
+          <label for="dishName" class="form-label">Dish Name</label>
+          <input type="text" class="form-control" id="dishName" [(ngModel)]="dishName" name="dishName" required>
+        </div>
+        <div class="mb-3">
+          <label for="dishValue" class="form-label">Dish Value</label>
+          <input type="number" class="form-control" id="dishValue" [(ngModel)]="dishValue" name="dishValue" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Add Dish</button>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-secondary" (click)="c('Save click')">Close</button>
+    </div>
+  </ng-template>
+  
+  <button class="btn btn-sm btn-outline-primary" (click)="open(content)">Add dish</button>
+  

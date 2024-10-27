@@ -8,6 +8,7 @@
         <p> date : {{ order?.date?.date + ' - ' + order?.date?.hour }}</p>
         <p> state: {{ order?.state?.state }}</p>
         
+        <h3> Dishes </h3>
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -32,9 +33,6 @@
         </table>
 
 	</div>
-	<div class="modal-footer">
-		<button type="button" class="btn btn-outline-secondary" (click)="c('Save click')"> Close </button>
-	</div>
 </ng-template>
 
-<button class="btn btn-lg btn-outline-primary" (click)="open(content)">Open order</button>
+<button class="btn btn-sm btn-outline-primary" (click)="open(content)">Open order</button>

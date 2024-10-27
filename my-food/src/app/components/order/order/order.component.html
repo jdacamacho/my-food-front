@@ -1,3 +1,5 @@
+<button class="btn btn-sm btn-outline-primary" (click)="createOrder()">Create order</button>
+
 <table class="table table-striped">
 	<thead>
 		<tr>
@@ -18,6 +20,8 @@
 				<td>{{ order.state.state }}</td>
 				<td>{{ order.totalPrice.totalPrice }}</td>
 				<td> <app-modal-info [order]="order"></app-modal-info> </td>
+				<td> <app-modal-dish [order]="order"></app-modal-dish> </td>
+				<td> <button class="btn btn-sm btn-outline-primary" (click)="calculateOrderTotalPrice(order.id_order)">Calculate total price</button> </td>
 			</tr>
 		}
 	</tbody>
