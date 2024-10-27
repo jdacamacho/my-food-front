@@ -1,0 +1,40 @@
+<ng-template #content let-c="close" let-d="dismiss">
+	<div class="modal-header">
+		<h4 class="modal-title" id="modal-basic-title">  Order: {{ order?.id_order }} </h4>
+		<button type="button" class="btn-close" aria-label="Close" (click)="d('Cross click')"></button>
+	</div>
+	<div class="modal-body">
+
+        <p> date : {{ order?.date?.date + ' - ' + order?.date?.hour }}</p>
+        <p> state: {{ order?.state?.state }}</p>
+        
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">id</th>
+                    <th scope="col">name</th>
+                    <th scope="col">price</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (dish of order?.dishes; track dish.id_dish; let i = $index) {
+                    <tr>
+                        <th scope="row">{{ i + 1 }}</th>
+                        <td>
+                            {{ dish.id_dish }}
+                        </td>
+                        <td>{{ dish.name }}</td>
+                        <td>{{ dish.price }}</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-outline-secondary" (click)="c('Save click')"> Close </button>
+	</div>
+</ng-template>
+
+<button class="btn btn-lg btn-outline-primary" (click)="open(content)">Open order</button>

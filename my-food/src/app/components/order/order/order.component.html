@@ -1,0 +1,24 @@
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th scope="col">#</th>
+			<th scope="col">date</th>
+			<th scope="col">state</th>
+			<th scope="col">total price</th>
+			<th scope="col"></th>
+		</tr>
+	</thead>
+	<tbody>
+		@for (order of orders; track order.id_order; let i = $index) {
+			<tr>
+				<th scope="row">{{ i + 1 }}</th>
+				<td>
+					{{ order.date.date + ' - ' + order.date.hour }}
+				</td>
+				<td>{{ order.state.state }}</td>
+				<td>{{ order.totalPrice.totalPrice }}</td>
+				<td> <app-modal-info [order]="order"></app-modal-info> </td>
+			</tr>
+		}
+	</tbody>
+</table>
