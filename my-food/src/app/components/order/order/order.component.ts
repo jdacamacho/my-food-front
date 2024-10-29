@@ -21,6 +21,7 @@ export class OrderComponent implements OnInit{
   constructor(private orderService: OrderService){}
 
   ngOnInit(): void {
+    console.log("inicia");
     this.loadOrders();
   }
 

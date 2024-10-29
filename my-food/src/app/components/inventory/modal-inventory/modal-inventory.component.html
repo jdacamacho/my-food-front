@@ -1,0 +1,45 @@
+<ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Product: {{product.id ? product.id : "New Product"}}</h4>
+      <button type="button" class="btn-close" aria-label="Close" (click)="d('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+      <form (ngSubmit)="saveProduct()">
+        <div class="mb-3">
+          <label for="productName" class="form-label">Product Name</label>
+          <input type="text" class="form-control" id="productName" [(ngModel)]="productName" name="name" required>
+        </div>
+        <div class="mb-3">
+          <label for="category" class="form-label">Category</label>
+          <select [(ngModel)]="category">
+            <option *ngFor="let category of Object.values(Category)" [value]="category">
+              {{ category }}
+            </option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="stock" class="form-label">Stock</label>
+          <input type="number" class="form-control" id="stock" [(ngModel)]="stock" name="stock" required>
+        </div>
+        <div class="mb-3">
+            <label for="units" class="form-label">Units</label>
+            <select [(ngModel)]="units">
+              <option *ngFor="let Units of Object.values(Units)" [value]="units">
+                {{ units }}
+              </option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="usefulLife" class="form-label">Useful Life</label>
+            <input type="date" class="form-control" id="usefulLife" [(ngModel)]="usefulLife" name="usefulLife" required>
+          </div>
+        <button type="submit" class="btn btn-primary">Save Product</button>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-secondary" (click)="c('Save click')">Close</button>
+    </div>
+  </ng-template>
+  
+  <button class="btn btn-sm btn-outline-primary" (click)="open(content)">Add dish</button>
+  
