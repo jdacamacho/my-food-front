@@ -17,6 +17,12 @@
 			<app-waste></app-waste>
 		</ng-template>
 	</li>
+	<li [ngbNavItem]="4">
+		<button ngbNavLink> Menu </button>
+		<ng-template ngbNavContent>
+			<app-menu></app-menu>
+		</ng-template>
+	</li>
 </ul>
 
 <div [ngbNavOutlet]="nav" class="mt-2"></div>
